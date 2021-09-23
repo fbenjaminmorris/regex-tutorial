@@ -1,16 +1,14 @@
-# Title (replace with your title)
+# Matching Email Regulas Expression
 
-As a web development student, I have developed a tutorial explaining a specifics of regex so that we can understand the search pattern the regex defines
+In this tutorial, I'm going to introduce one of the more commonly used Regular Expressions and, by describing how it works, explain some important regex concepts.
 
 ## Summary
 
-A Regex or regular expression is a sequence of characters that define a search pattern. Usually such patterns are used by string-searching algorithms for "find" or "find and replace" operations on strings. It also looks for input validations. It is a technique commonly developed in theoretical computer science.
+We will be walking through the following regex, explaining what each component does.
 
-We will look a a string of code using regex, this code looks for a match HTML tag.
+/^([a-z0-9_.-]+)@([\da-z.-]+).([a-z.]{2,6})$/
 
-Example: /^<([a-z]+)([^<]+)*(?:>(.*)<\/\1>|\s+\/>)$/
-
-The below content will explain what each section of this code does and more.
+This regex makes sure that the given string matches the template for an email address.
 
 ## Table of Contents
 
@@ -29,35 +27,35 @@ The below content will explain what each section of this code does and more.
 ## Regex Components
 
 ### Anchors
-- abc$ -^start / $end of the string
+The two anchors in regex are ^ and $.
 
--^ Matches the beginning of the string, or the beginning of a line if the multiline flag (m) is enabled.This matches a position, not a character.
--$ Matches the end of the string, or the end of a line if the multiline flag (m) is enabled. This matches a position, not a character.
-\b\B -word, not-word boundary
+^ means that the following code must appear at the beginning of the string.
 
-\b Matches a word boundary position between a word character and non-word character or position (start / end of string). See the word character class (w) for more info.
-\B Matches any position that is not a word boundary. This matches a position, not a character.
-See Boundaries for more detailed Information
+$ means that the preceding code must appear at the end of the string.
+
+Because our regular expression contains both, a given string must match all the given specifications exactly, or it won't be a match.
+
+Although this sounds limiting, you will see how quantifiers, grouping and bracket expressions allow a large range of variation in the given string.
 
 ### Quantifiers
 Quantifiers indicate that the preceding token must be matched a certain number of times. A quantifire can be greedy or lazy that is explained below.
 
-a*a+a? -0 or more, 1 or more, 0 or 1
+- a*a+a? -0 or more, 1 or more, 0 or 1
 
-"+" Matches 1 or more of the preceding token.
-"*" Matches 0 or more of the preceding token.
-"?" Matches 0 or 1 of the preceding token, effectively making it optional.
-"?" Makes the preceding quantifier lazy, causing it to match as few characters as possible. By default, quantifiers are greedy, and will match as many characters as possible.
-a{5}a{2,} -Looks for exactly five, two or more
+     "+" Matches 1 or more of the preceding token.
+     "*" Matches 0 or more of the preceding token.
+     "?" Matches 0 or 1 of the preceding token, effectively making it optional.
+     "?" Makes the preceding quantifier lazy, causing it to match as few characters as possible. By default, quantifiers are greedy, and will match as many characters as possible.
+- a{5}a{2,} -Looks for exactly five, two or more
 
-{2,6} -forces the input of characters between two & six characters long.
+- {2,6} -forces the input of characters between two & six characters long.
 
-a+?a{2,}? -match as few as possible
+- a+?a{2,}? -match as few as possible
 
-ab|cd -match ab or cd
+- ab|cd -match ab or cd
 
 ### OR Operator
-| Acts like a boolean OR. Matches the expression before or after the |. It can operate within a group, or on a whole expression. The patterns will be tested in order. Just as in java will match either set of characters. It will look for this OR that.
+- | Acts like a boolean OR. Matches the expression before or after the |. It can operate within a group, or on a whole     expression. The patterns will be tested in order. Just as in java will match either set of characters. It will look for this OR that.
 
 ### Character Classes
 
