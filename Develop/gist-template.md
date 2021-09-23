@@ -127,6 +127,14 @@ Simply put: \b allows you to perform a “whole words only” search using a reg
 Backreferences match the same text as previously matched by a capturing group. Suppose you want to match a pair of opening and closing HTML tags, and the text in between. By putting the opening tag into a backreference, we can reuse the name of the tag for the closing tag. Here’s how: <([A-Z][A-Z0-9]*)\b[^>]*>.*?</\1>. This regex contains only one pair of parentheses, which capture the string matched by [A-Z][A-Z0-9]*. This is the opening HTML tag. (Since HTML tags are case insensitive, this regex requires case insensitive matching.) The backreference \1 (backslash one) references the first capturing group. \1 matches the exact same text that was matched by the first capturing group. The / before it is a literal character. It is simply the forward slash in the closing HTML tag that we are trying to match
 
 ### Look-ahead and Look-behind
+Lookahead and lookbehind, collectively called “lookaround”, are zero-length assertions just like the start and end of line, and start and end of word anchors explained earlier in this tutorial. The difference is that lookaround actually matches characters, but then gives up the match, returning only the result: match or no match. That is why they are called “assertions”. They do not consume characters in the string, but only assert whether a match is possible or not. Lookaround allows you to create regular expressions that are impossible to create without them, or that would get very longwinded without them.
+
+Our example does not contain lookarounds; however, the following are some examples.
+
+- A positive lookahead, (?=ABC), will match a group after the pattern without including it in the result.
+- A negative lookahead, (?!ABC), will specify a group that cannot match after the pattern; otherwise, the result is   unsuccessful.
+- A positive lookbehind, (?<=ABC), will match a group before the pattern without including it in the result.
+- A negative lookbehind, (?<!ABC), will specify a group that cannot match before the pattern; otherwise, the result is unsuccessful.
 
 ## Author
 
