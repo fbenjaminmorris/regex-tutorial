@@ -1,4 +1,4 @@
-# Matching Email Regulas Expression
+# Matching Email Regular Expression
 
 In this tutorial, I'm going to introduce one of the more commonly used Regular Expressions and, by describing how it works, explain some important regex concepts.
 
